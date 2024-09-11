@@ -1,13 +1,13 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "AI/EnemyAIController.h"
+#include "AI/MonsterAIController.h"
 
-AEnemyAIController::AEnemyAIController()
+AMonsterAIController::AMonsterAIController()
 {
 }
 
-void AEnemyAIController::BeginPlay()
+void AMonsterAIController::BeginPlay()
 {
 	Super::BeginPlay();
 

@@ -4,18 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "AIController.h"
-#include "EnemyAIController.generated.h"
+#include "MonsterAIController.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class FIVENIGHTATETEVERSE_API AEnemyAIController : public AAIController
+class FIVENIGHTATETEVERSE_API AMonsterAIController : public AAIController
 {
 	GENERATED_BODY()
 	
 public:
-	AEnemyAIController();
+	AMonsterAIController();
 
 protected:
 	virtual void BeginPlay() override;

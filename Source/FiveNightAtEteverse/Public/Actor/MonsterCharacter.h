@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "EnemyCharacter.generated.h"
+#include "MonsterCharacter.generated.h"
 
 UCLASS()
-class FIVENIGHTATETEVERSE_API AEnemyCharacter : public ACharacter
+class FIVENIGHTATETEVERSE_API AMonsterCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
 	// Sets default values for this character's properties
-	AEnemyCharacter();
+	AMonsterCharacter();
 
 protected:
 	// Called when the game starts or when spawned
