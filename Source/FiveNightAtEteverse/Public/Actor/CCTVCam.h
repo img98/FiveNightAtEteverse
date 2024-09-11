@@ -10,7 +10,7 @@ class USceneCaptureComponent2D;
 
 /** Please add a class description */
 UCLASS()
-class ACCTVCam : public AActor
+class FIVENIGHTATETEVERSE_API ACCTVCam : public AActor
 {
 	GENERATED_BODY()
 
