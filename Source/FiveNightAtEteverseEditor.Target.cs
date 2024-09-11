@@ -10,6 +10,6 @@ public class FiveNightAtEteverseEditorTarget : TargetRules
 		Type = TargetType.Editor;
 		DefaultBuildSettings = BuildSettingsVersion.V5;
 
-		ExtraModuleNames.AddRange( new string[] { "FiveNightAtEteverse" } );
+		ExtraModuleNames.AddRange( new string[] { "FiveNightAtEteverse", "NavigationSystem", "AIModule" } );
 	}
 }
