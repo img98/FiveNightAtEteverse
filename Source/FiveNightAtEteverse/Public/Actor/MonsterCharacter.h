@@ -4,10 +4,14 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Interface/MonsterInterface.h"
+#include "Enum/MonsterState.h"
 #include "MonsterCharacter.generated.h"
 
+class AFNAEGameState;
+
 UCLASS()
-class FIVENIGHTATETEVERSE_API AMonsterCharacter : public ACharacter
+class FIVENIGHTATETEVERSE_API AMonsterCharacter : public ACharacter, public IMonsterInterface
 {
 	GENERATED_BODY()
 
@@ -18,6 +22,11 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
+	TObjectPtr<AFNAEGameState> GameState;
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Default")
+	EMonsterState CurrentState;
 
 public:	
 	// Called every frame

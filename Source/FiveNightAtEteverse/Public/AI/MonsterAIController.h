@@ -22,7 +22,9 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
 	TObjectPtr<USceneComponent> DefaultSceneRoot;
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
-	TObjectPtr<UBehaviorTree> BTAsset;
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Default")
+	TObjectPtr<UBehaviorTree> BTAsset; //BP에서 할당
+
 public:
+
 };

@@ -10,14 +10,16 @@ AMonsterCharacter::AMonsterCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 // Called when the game starts or when spawned
 void AMonsterCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	GameState = Cast<AFNAEGameState>(GetWorld()->GetGameState());
+
+	CurrentState = EMonsterState::Move;
 }
 
 // Called every frame
@@ -37,9 +39,8 @@ void AMonsterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 void AMonsterCharacter::CheckPlayerState() //AnchorLocation에 도달하면 이함수 호출해서 체크
 {
 	//일단 이런식으로 캐스트하고 기능수행한다는 예시. 후에 자식에서 쓸때는 없애자
-	AFNAEGameState* GameState = Cast<AFNAEGameState>(GetWorld()->GetGameState());
 	if (!GameState->GetIsPlayerHide())
 	{
-		UE_LOG(LogTemp, Log, TEXT("CheckPlayerState : Player is not Hiding"));
-	}
+		UE_LOG(LogTemp, Log, TEXT("Make override function in child class"));
+	}	
 }
