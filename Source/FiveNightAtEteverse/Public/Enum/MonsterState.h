@@ -7,7 +7,7 @@
 UENUM(BlueprintType) // BlueprintType을 사용하면 블루프린트에서도 사용 가능
 enum class EMonsterState : uint8
 {
-    None UMETA(DisplayName = "None"),
+    Idle UMETA(DisplayName = "Idle"),
     Move UMETA(DisplayName = "Move"),
     Check UMETA(DisplayName = "Check"),
     Find UMETA(DisplayName = "Find"),

@@ -11,7 +11,7 @@ void AMonsterAIController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	check(BTAsset);
+	ensure(BTAsset);
 	RunBehaviorTree(BTAsset);
 }
 

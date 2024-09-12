@@ -12,3 +12,13 @@ void AFNAEGameState::SetIsPlayerHide(bool InBool)
 {
 	IsPlayerHide = InBool;
 }
+
+bool AFNAEGameState::GetIsDoorLocked()
+{
+	return IsDoorLocked;
+}
+
+void AFNAEGameState::SetIsDoorLocked(bool InBool)
+{
+	IsDoorLocked = InBool;
+}

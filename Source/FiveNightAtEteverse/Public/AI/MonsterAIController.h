@@ -22,8 +22,8 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
 	TObjectPtr<USceneComponent> DefaultSceneRoot;
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "Default")
-	TObjectPtr<UBehaviorTree> BTAsset; //BP에서 할당
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Default")
+	TObjectPtr<UBehaviorTree> BTAsset; //BP에서 할당.
 
 public:
 

@@ -4,6 +4,8 @@
 #include "Actor/MonsterCharacter.h"
 #include "FNAEGameState.h"
 #include "BehaviorTree/BlackboardComponent.h"
+#include "Kismet/KismetSystemLibrary.h"
+#include "AI/MonsterAIController.h"
 
 // Sets default values
 AMonsterCharacter::AMonsterCharacter()
@@ -19,7 +21,16 @@ void AMonsterCharacter::BeginPlay()
 
 	GameState = Cast<AFNAEGameState>(GetWorld()->GetGameState());
 
-	CurrentState = EMonsterState::Move;
+	MonsterController = Cast<AMonsterAIController>(GetController());
+	ensure(MonsterController);
+	Blackboard = MonsterController->GetBlackboardComponent();
+	ensure(Blackboard);
+
+	SetCurrentState(EMonsterState::Move);
+	SetDestination();
+
+	FTimerHandle THUpdateAITick;
+	GetWorldTimerManager().SetTimer(THUpdateAITick, this, &AMonsterCharacter::UpdateAITick, 0.01f, true); //SetTimerByFunctionName이 없어 delegate없이 타이머 돌리는 방법을 찾아봤다.
 }
 
 // Called every frame
@@ -36,11 +47,55 @@ void AMonsterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 
 }
 
-void AMonsterCharacter::CheckPlayerState() //AnchorLocation에 도달하면 이함수 호출해서 체크
+bool AMonsterCharacter::CheckPlayerStateSafe() //AnchorLocation에 도달하면 이함수 호출해서 체크
 {
-	//일단 이런식으로 캐스트하고 기능수행한다는 예시. 후에 자식에서 쓸때는 없애자
-	if (!GameState->GetIsPlayerHide())
+	//자식 클래스에서 각자의 체크로직 구현
+	UE_LOG(LogTemp, Warning, TEXT("Make CheckPlayerStateSafe At ChildClass"));
+	return false;
+}
+
+void AMonsterCharacter::SetCurrentState(EMonsterState InState)
+{
+	CurrentState = InState;
+	check(Blackboard);
+	Blackboard->SetValueAsEnum("AIState", (uint8)InState);
+}
+
+void AMonsterCharacter::SetDestination()
+{
+	ensure(Destination);
+	Blackboard->SetValueAsObject("Destination", Destination);
+}
+
+void AMonsterCharacter::UpdateAITick()
+{
+	//강사님도 State바꾸는 작업은 하드코딩으로 하더라(AIBattleSystemCharacter.cpp).
+	SetCurrentState((EMonsterState)Blackboard->GetValueAsEnum("AIState"));
+	switch(CurrentState)
 	{
-		UE_LOG(LogTemp, Log, TEXT("Make override function in child class"));
-	}	
+	case EMonsterState::Move:
+
+		break;
+	case EMonsterState::Check:
+
+		break;
+	case EMonsterState::Find:
+
+		break;
+	case EMonsterState::NotFind:
+
+		break;
+	default:
+		break;
+	}
+}
+
+void AMonsterCharacter::FindPlayerSuccess()
+{
+	//TODO: 게임오버시키는 코드
+}
+
+void AMonsterCharacter::FindPlayerFail()
+{
+	//TODO: Monster를 비활성화시키는 코드.
 }

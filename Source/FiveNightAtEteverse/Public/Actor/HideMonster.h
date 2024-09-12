@@ -18,6 +18,6 @@ class FIVENIGHTATETEVERSE_API AHideMonster : public AMonsterCharacter
 public:
 
 protected:
-	virtual void CheckPlayerState() override;
+	virtual	bool CheckPlayerStateSafe() override;
 
 };

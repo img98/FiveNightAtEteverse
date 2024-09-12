@@ -19,8 +19,14 @@ public:
 	bool GetIsPlayerHide();
 	UFUNCTION(BlueprintCallable)
 	void SetIsPlayerHide(bool InBool);
+	UFUNCTION(BlueprintCallable)
+	bool GetIsDoorLocked();
+	UFUNCTION(BlueprintCallable)
+	void SetIsDoorLocked(bool InBool);
 
 protected:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
 	bool IsPlayerHide = 0;
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
+	bool IsDoorLocked = 0;
 };
