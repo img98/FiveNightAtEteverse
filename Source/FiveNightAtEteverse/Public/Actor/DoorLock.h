@@ -28,16 +28,16 @@ protected:
 	TObjectPtr<UBoxComponent> BoxCollision;
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
-	TObjectPtr<UStaticMeshComponent> DoorLock;
+	TObjectPtr<UStaticMeshComponent> DoorLockMesh;
 	/** Please add a variable description */
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
 	TObjectPtr<USceneComponent> DefaultSceneRoot;
 	/** Please add a variable description */
 
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Default")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Default")
 	TObjectPtr<AKeyCard> KeyCard;
 	/** Please add a variable description */
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Default")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Default")
 	TObjectPtr<ASecurityDoor> SecurityDoor;
 
 

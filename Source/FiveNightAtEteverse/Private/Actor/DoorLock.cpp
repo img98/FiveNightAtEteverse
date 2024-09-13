@@ -14,10 +14,10 @@ ADoorLock::ADoorLock()
 
 	DefaultSceneRoot = CreateDefaultSubobject<USceneComponent>(TEXT("DefaultSceneRoot"));
 	SetRootComponent(DefaultSceneRoot);
+	DoorLockMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DoorLockStaticMesh"));
+	DoorLockMesh->SetupAttachment(DefaultSceneRoot);
 	BoxCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("CollisionBox"));
-	BoxCollision->SetupAttachment(DefaultSceneRoot);
-	DoorLock = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DoorLockStaticMesh"));
-	DoorLock->SetupAttachment(BoxCollision);
+	BoxCollision->SetupAttachment(DoorLockMesh);
 
 	BoxCollision->OnComponentBeginOverlap.AddDynamic(this, &ADoorLock::BeginOverlap);
 	BoxCollision->OnComponentEndOverlap.AddDynamic(this, &ADoorLock::EndOverlap);
