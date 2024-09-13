@@ -15,3 +15,4 @@ bool ADoorMonster::CheckPlayerStateSafe()
 		return false;
 	}
 }
+

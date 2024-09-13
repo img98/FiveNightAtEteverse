@@ -24,6 +24,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetIsDoorLocked(bool InBool);
 
+
 protected:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
 	bool IsPlayerHide = 0;

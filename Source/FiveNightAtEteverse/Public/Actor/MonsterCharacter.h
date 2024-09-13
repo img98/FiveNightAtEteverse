@@ -36,6 +36,11 @@ protected:
 	UPROPERTY(BlueprintReadOnly, EditInstanceOnly, Category = "Default")
 	TObjectPtr<AActor> Destination; //Level에 올려진 Destination을 Monster인스턴스에서 직접 할당
 
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Default")
+	TObjectPtr<UAnimMontage> FindSuccessMontage;
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
+	FTimerHandle THDoJumpscare;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -60,4 +65,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	virtual void FindPlayerFail();
+	UFUNCTION(BlueprintCallable)
+	virtual void DoJumpscare();
 };

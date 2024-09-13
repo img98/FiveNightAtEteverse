@@ -6,6 +6,8 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "AI/MonsterAIController.h"
+#include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // Sets default values
 AMonsterCharacter::AMonsterCharacter()
@@ -26,7 +28,7 @@ void AMonsterCharacter::BeginPlay()
 	Blackboard = MonsterController->GetBlackboardComponent();
 	ensure(Blackboard);
 
-	SetCurrentState(EMonsterState::Move);
+	SetCurrentState(EMonsterState::Move); //후에 런칭할때는 Idle로 시작하게 하자. Idle에서 특정 트리거로 Move가 되게 바꾼다.
 	SetDestination();
 
 	FTimerHandle THUpdateAITick;
@@ -70,9 +72,13 @@ void AMonsterCharacter::SetDestination()
 void AMonsterCharacter::UpdateAITick()
 {
 	//강사님도 State바꾸는 작업은 하드코딩으로 하더라(AIBattleSystemCharacter.cpp).
+	//앞으로 AIState의 변경은 BT에서만 다루겠다.
 	SetCurrentState((EMonsterState)Blackboard->GetValueAsEnum("AIState"));
 	switch(CurrentState)
 	{
+	case EMonsterState::Idle:
+
+		break;
 	case EMonsterState::Move:
 
 		break;
@@ -92,10 +98,36 @@ void AMonsterCharacter::UpdateAITick()
 
 void AMonsterCharacter::FindPlayerSuccess()
 {
-	//TODO: 게임오버시키는 코드
+	if (!GetWorldTimerManager().IsTimerActive(THDoJumpscare))
+		GetWorldTimerManager().SetTimer(
+			THDoJumpscare,
+			this,
+			&AMonsterCharacter::DoJumpscare, //가상함수이기에 AMonsterCharacter:: 이지만 자식함수가 나올수 있다.
+			2.f,
+			false	//bloop
+		);
 }
 
 void AMonsterCharacter::FindPlayerFail()
 {
 	//TODO: Monster를 비활성화시키는 코드.
+}
+
+void AMonsterCharacter::DoJumpscare()
+{
+	APlayerCameraManager* CameraManager = UGameplayStatics::GetPlayerCameraManager(this, 0);
+	FVector SpawnDistance = CameraManager->GetActorForwardVector() * 200.f;
+	FVector SpawnLocation = CameraManager->GetCameraLocation() + SpawnDistance;
+	SetActorLocation(SpawnLocation);
+
+	FRotator LookAtRotator = UKismetMathLibrary::FindLookAtRotation(GetActorLocation(), CameraManager->GetCameraLocation());
+	SetActorRotation(LookAtRotator);
+
+	if (FindSuccessMontage)
+	{
+		PlayAnimMontage(FindSuccessMontage);
+	}
+
+	UE_LOG(LogTemp, Warning, TEXT("called by AMonsterCharacter"));
+	//TODO: 위내용이 다끝나면 게임오버 출력하는 방법 찾아보자. AnimMontage끝나는 Notify를 써도 좋을 것 같다.
 }
