@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Actor/MonsterCharacter.h"
-#include "Interface/MonsterInterface.h"
 #include "HideMonster.generated.h"
 
 /**
