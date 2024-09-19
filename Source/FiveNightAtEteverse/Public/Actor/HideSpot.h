@@ -38,18 +38,13 @@ protected:
 	TObjectPtr<UStaticMeshComponent> CabinetInnerHandle;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
-	TObjectPtr<UBoxComponent> OuterHandleCollision;
+	TObjectPtr<UStaticMeshComponent> OuterLeftHand;
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
-	TObjectPtr<UBoxComponent> InnerHandleCollision;
-
+	TObjectPtr<UStaticMeshComponent> OuterRightHand;
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
-	TObjectPtr<USkeletalMeshComponent> OuterLeftHand;
+	TObjectPtr<UStaticMeshComponent> InnerLeftHand;
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
-	TObjectPtr<USkeletalMeshComponent> OuterRightHand;
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
-	TObjectPtr<USkeletalMeshComponent> InnerLeftHand;
-	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
-	TObjectPtr<USkeletalMeshComponent> InnerRightHand;
+	TObjectPtr<UStaticMeshComponent> InnerRightHand;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
 	TObjectPtr<UStaticMeshComponent> Sign1;

@@ -25,20 +25,15 @@ AHideSpot::AHideSpot()
 	CabinetInnerHandle = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CabinetInnerHandleleStaticMesh"));
 	CabinetInnerHandle->SetupAttachment(CabinetDoor);
 
-	OuterHandleCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("OuterHandleCollisionBox"));
-	OuterHandleCollision->SetupAttachment(CabinetOuterHandle);
-	InnerHandleCollision = CreateDefaultSubobject<UBoxComponent>(TEXT("InnerCollisionBox"));
-	InnerHandleCollision->SetupAttachment(CabinetInnerHandle);
-
-	OuterLeftHand = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("OuterLeftHandSkeletalMesh"));
+	OuterLeftHand = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("OuterLeftHandStaticMesh"));
 	OuterLeftHand->SetupAttachment(CabinetOuterHandle);
-	OuterRightHand = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("OuterRightHandSkeletalMesh"));
+	OuterRightHand = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("OuterRightHandStaticMesh"));
 	OuterRightHand->SetupAttachment(CabinetOuterHandle);
-	InnerLeftHand = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("InnerLeftHandSkeletalMesh"));
+	InnerLeftHand = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("InnerLeftHandStaticMesh"));
 	InnerLeftHand->SetupAttachment(CabinetInnerHandle);
-	InnerRightHand = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("InnerRightHandSkeletalMesh"));
+	InnerRightHand = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("InnerRightHandStaticMesh"));
 	InnerRightHand->SetupAttachment(CabinetInnerHandle);
-
+	
 	Sign1 = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Sign1StaticMesh"));
 	Sign1->SetupAttachment(CabinetDoor);
 	Sign2 = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Sign2StaticMesh"));
@@ -47,13 +42,11 @@ AHideSpot::AHideSpot()
 	Sign3->SetupAttachment(CabinetDoor);
 
 	CabinetDoor->SetSimulatePhysics(true);
-
+	
 	OuterLeftHand->SetVisibility(false);
 	OuterRightHand->SetVisibility(false);
 	InnerLeftHand->SetVisibility(false);
 	InnerRightHand->SetVisibility(false);
-
-	InnerHandleCollision->SetCollisionEnabled(ECollisionEnabled::NoCollision); //HideCollision에 플레이어가 들어간다면 CollisionEnabled해주기
 
 	HideCollision->OnComponentBeginOverlap.AddDynamic(this, &AHideSpot::BeginOverlap);
 	HideCollision->OnComponentEndOverlap.AddDynamic(this, &AHideSpot::EndOverlap);
