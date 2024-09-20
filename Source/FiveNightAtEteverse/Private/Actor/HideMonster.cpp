@@ -6,10 +6,9 @@
 
 bool AHideMonster::CheckPlayerStateSafe()
 {
-	//플레이어가 캐비넷에 숨었는지 GameState를 통해 확인
 	if (GameState->GetIsPlayerHide())
 	{
-		return true;		
+		return true;
 	}
 	else
 	{

@@ -27,7 +27,7 @@ public:
 
 protected:
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
-	bool IsPlayerHide = 0;
+	bool IsPlayerHide = false;
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
-	bool IsDoorLocked = 0;
+	bool IsDoorLocked = false;
 };

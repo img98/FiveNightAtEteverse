@@ -33,15 +33,17 @@ protected:
 	TObjectPtr<AMonsterAIController> MonsterController;
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
 	TObjectPtr<UBlackboardComponent> Blackboard;
-	UPROPERTY(BlueprintReadOnly, EditInstanceOnly, Category = "Default")
-	TObjectPtr<AActor> Destination; //Level에 올려진 Destination을 Monster인스턴스에서 직접 할당
+	UPROPERTY(BlueprintReadOnly, Category = "Default", Meta = (ExposeOnSpawn = true))
+	TObjectPtr<AActor> Destination; //MonsterSpawner의 Destination을 할당
 
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Default")
 	TObjectPtr<UAnimMontage> FindSuccessMontage;
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Default")
 	FTimerHandle THDoJumpscare;
 
-public:	
+	virtual void PossessedBy(AController* NewController) override;
+
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

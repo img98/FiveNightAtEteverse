@@ -14,6 +14,8 @@ AMonsterCharacter::AMonsterCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	AutoPossessAI = EAutoPossessAI::PlacedInWorldOrSpawned;
 }
 
 // Called when the game starts or when spawned
@@ -21,6 +23,14 @@ void AMonsterCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+}
+
+void AMonsterCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+
+	//스포너를 사용하기에 beginPlay코드를 Possess될때로 옮겼다.
 	GameState = Cast<AFNAEGameState>(GetWorld()->GetGameState());
 
 	MonsterController = Cast<AMonsterAIController>(GetController());
@@ -116,7 +126,7 @@ void AMonsterCharacter::FindPlayerFail()
 void AMonsterCharacter::DoJumpscare()
 {
 	APlayerCameraManager* CameraManager = UGameplayStatics::GetPlayerCameraManager(this, 0);
-	FVector SpawnDistance = CameraManager->GetActorForwardVector() * 200.f;
+	FVector SpawnDistance = CameraManager->GetActorForwardVector() * 225.f;
 	FVector SpawnLocation = CameraManager->GetCameraLocation() + SpawnDistance;
 	SetActorLocation(SpawnLocation);
 
