@@ -28,7 +28,10 @@ FiveNightAtEteverse는 VR기기를 사용하여 즐길 수 있는 실감형 프�
 VR기기를 조작하여 가상공간 내 물체들과 현실처럼 상호작용 할 수 있습니다.
 키카드를 손으로 집어 문을 닫거나, 캐비넷 손잡이를 열고 닫아 내부에 숨어 적합한 회피 기믹을 수행해야 합니다.
 
-![doorlock.png](https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F9544e5d5-b0a4-457f-a61a-2e7e0397a869%2Fdoorlock.png?table=block&id=13dd2bcf-8882-8096-a00e-f27c5cb69752&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=670&userId=&cache=v2) | ![cabinet.png](https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F80160558-fe46-4ddf-adab-0c61e7fc2aae%2Fcabinet.png?table=block&id=13dd2bcf-8882-80b1-93f9-e8a18733e5e7&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=670&userId=&cache=v2)
+<p align="center">
+  <img src="https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F9544e5d5-b0a4-457f-a61a-2e7e0397a869%2Fdoorlock.png?table=block&id=13dd2bcf-8882-8096-a00e-f27c5cb69752&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=670&userId=&cache=v2" alt="doorlock" width="45%">
+  <img src="https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F80160558-fe46-4ddf-adab-0c61e7fc2aae%2Fcabinet.png?table=block&id=13dd2bcf-8882-80b1-93f9-e8a18733e5e7&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=670&userId=&cache=v2" alt="cabinet" width="45%">
+</p>
 
 > [DoorLock 링크](https://www.notion.so/DoorLock-ce6f06ab975e49c4ac7f6ee7f841d85c?pvs=21)
 
@@ -49,23 +52,19 @@ BaseMonster를 상속받는 2가지 몬스터(귀신)를 제작했습니다.
 //DoorMonster.cpp
 bool ADoorMonster::CheckPlayerStateSafe()
 {
-	...
 	if (GameState->GetIsDoorLocked())
 	{
 		return true;
 	}
-	...
 }
-``` | ```cpp
+
 //HideMonster.cpp
 bool AHideMonster::CheckPlayerStateSafe()
 {
-	...
 	if (GameState->GetIsPlayerHide())
 	{
 		return true;
 	}
-	...
 }
 ```
     
