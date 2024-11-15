@@ -3,10 +3,8 @@
 
 [![FNAE유튜브이미지](http://img.youtube.com/vi/6bcxpOHsBZQ/0.jpg)](https://youtu.be/6bcxpOHsBZQ)
 
-FiveNightAtEteverse는 VR기기를 사용하여 즐길 수 있는 실감형 프로젝트입니다.
-오큘러스 퀘스트를 사용하여 가상의 공간에 들어가 사물을 직접 만지고 상호작용하는 컨텐츠를 제작했습니다.
+FiveNightAtEteverse는 VR기기를 사용하여 즐길 수 있는 실감형 프로젝트입니다.   오큘러스 퀘스트를 사용하여 가상의 공간에 들어가 사물을 직접 만지고 상호작용하는 컨텐츠를 제작했습니다.
 
----
 
 # 세부 사항
 
@@ -14,14 +12,12 @@ FiveNightAtEteverse는 VR기기를 사용하여 즐길 수 있는 실감형 프�
 - 목적 : 에티버스 러닝 과정에서 개인 프로젝트로 제작한 VR 호러 게임입니다. 언리얼 엔진5를 사용하여 만든 가상 공간을 탐험하며 VR기기를 통해 현실 같은 경험을 제공합니다.
 - 개발 기간 : 2024.09.19 ~ 2024.09.25
 
----
 
 # 컨텐츠 및 기능
 
 ## 실시간 렌더링
 
-플레이어는 사무실에서 건물 내의 공간을 CCTV를 통해 감시합니다.
-RenderTarget을 통해 실시간으로 갱신되는 텍스쳐를 생성하여 사무실 내 모니터에 표시합니다.
+플레이어는 사무실에서 건물 내의 공간을 CCTV를 통해 감시합니다.   RenderTarget을 통해 실시간으로 갱신되는 텍스쳐를 생성하여 사무실 내 모니터에 표시합니다.
 
 ![cctv.png](https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F18dd57d0-b058-421c-8b44-b9507e8c3333%2Fcctv.png?table=block&id=13dd2bcf-8882-80d7-bdda-d5e6561581b1&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=860&userId=&cache=v2)
 
@@ -32,7 +28,7 @@ RenderTarget을 통해 실시간으로 갱신되는 텍스쳐를 생성하여 �
 VR기기를 조작하여 가상공간 내 물체들과 현실처럼 상호작용 할 수 있습니다.
 키카드를 손으로 집어 문을 닫거나, 캐비넷 손잡이를 열고 닫아 내부에 숨어 적합한 회피 기믹을 수행해야 합니다.
 
-![doorlock.png](https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F9544e5d5-b0a4-457f-a61a-2e7e0397a869%2Fdoorlock.png?table=block&id=13dd2bcf-8882-8096-a00e-f27c5cb69752&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=670&userId=&cache=v2) || ![cabinet.png](https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F80160558-fe46-4ddf-adab-0c61e7fc2aae%2Fcabinet.png?table=block&id=13dd2bcf-8882-80b1-93f9-e8a18733e5e7&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=670&userId=&cache=v2)
+![doorlock.png](https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F9544e5d5-b0a4-457f-a61a-2e7e0397a869%2Fdoorlock.png?table=block&id=13dd2bcf-8882-8096-a00e-f27c5cb69752&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=670&userId=&cache=v2) | ![cabinet.png](https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F80160558-fe46-4ddf-adab-0c61e7fc2aae%2Fcabinet.png?table=block&id=13dd2bcf-8882-80b1-93f9-e8a18733e5e7&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=670&userId=&cache=v2)
 
 > [DoorLock 링크](https://www.notion.so/DoorLock-ce6f06ab975e49c4ac7f6ee7f841d85c?pvs=21)
 
@@ -60,7 +56,7 @@ bool ADoorMonster::CheckPlayerStateSafe()
 	}
 	...
 }
-``` || ```cpp
+``` | ```cpp
 //HideMonster.cpp
 bool AHideMonster::CheckPlayerStateSafe()
 {
@@ -75,7 +71,6 @@ bool AHideMonster::CheckPlayerStateSafe()
     
 >[MonsterCharacter 링크](https://www.notion.so/MonsterCharacter-42ce0f29748d40c0b5d1ef7f6a82d1be?pvs=21)
 
----
 
 #플레이 영상
 
