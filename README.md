@@ -49,7 +49,7 @@ BaseMonster를 상속받는 2가지 몬스터(귀신)를 제작했습니다.
 각각의 몬스터는 같은 BehaviorTree를 사용하지만 Task에서 요구하는 함수를 가상함수로 만들었기에 다른 대처를 해야합니다.
 
 1. DoorMonster는 플레이어의 문 잠금 여부를 확인
-2. HideMonster는 플레이어의 숨은 상태 확인
+2. HideMonster는 플레이어의 숨은 상태를 확인
     
 ![image.png](https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F4e9b7219-b5a1-40bc-b6c9-17867aba2a01%2Fimage.png?table=block&id=13dd2bcf-8882-8064-9f76-ce6979d07709&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=1420&userId=&cache=v2)
 
@@ -77,6 +77,6 @@ bool AHideMonster::CheckPlayerStateSafe()
 >[MonsterCharacter 링크](https://www.notion.so/MonsterCharacter-42ce0f29748d40c0b5d1ef7f6a82d1be?pvs=21)
 
 
-#플레이 영상
+# 플레이 영상
 
 > https://youtu.be/6bcxpOHsBZQ
