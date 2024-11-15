@@ -19,7 +19,9 @@ FiveNightAtEteverse는 VR기기를 사용하여 즐길 수 있는 실감형 프�
 
 ## 실시간 렌더링
 
-플레이어는 사무실에서 건물 내의 공간을 CCTV를 통해 감시합니다.   RenderTarget을 통해 실시간으로 갱신되는 텍스쳐를 생성하여 사무실 내 모니터에 표시합니다.
+플레이어는 사무실에서 건물 내의 공간을 CCTV를 통해 감시합니다.
+
+RenderTarget을 통해 실시간으로 갱신되는 텍스쳐를 생성하여 사무실 내 모니터에 표시합니다.
 
 ![cctv.png](https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F18dd57d0-b058-421c-8b44-b9507e8c3333%2Fcctv.png?table=block&id=13dd2bcf-8882-80d7-bdda-d5e6561581b1&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=860&userId=&cache=v2)
 
