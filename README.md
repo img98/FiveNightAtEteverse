@@ -25,10 +25,8 @@ USceneCaptureComponent2D를 사용하는 가상의 CCTV 카메라를 구현하�
 
 촬영 된 화면은 RenderTarget을 통해 실시간으로 갱신되는 텍스쳐를 생성하며, 이것을 사무실 내 모니터에 표시합니다.
 
-<p align="center">
-  ![cctvcam](https://github.com/user-attachments/assets/5a7d5e23-6c58-4c19-bb9f-25894ad06108)
-  ![cctvmonitor](https://github.com/user-attachments/assets/a6ee6687-d9df-46e0-bf02-3ddb1854b051)
-</p>
+![cctvcam](https://github.com/user-attachments/assets/5a7d5e23-6c58-4c19-bb9f-25894ad06108) |![cctvmonitor](https://github.com/user-attachments/assets/a6ee6687-d9df-46e0-bf02-3ddb1854b051)
+--- | --- | 
 
 
 ## 회피 기믹 - VR 상호작용
@@ -37,11 +35,8 @@ VR기기를 조작하여 가상공간 내 물체들과 현실처럼 상호작용
 
 키카드를 손으로 집어 문을 닫거나, 캐비넷 손잡이를 열고 닫아 내부에 숨어 적합한 회피 기믹을 수행해야 합니다.
 
-<p align="center">
-  ![vrkeycard](https://github.com/user-attachments/assets/91dd5518-0229-42de-ba95-2c88ffaadd88)
-  ![vrcabinet](https://github.com/user-attachments/assets/e6c522fb-3b4f-4e79-88bb-5497c5b019ad)
-</p>
-
+![vrkeycard](https://github.com/user-attachments/assets/91dd5518-0229-42de-ba95-2c88ffaadd88)) |![vrcabinet](https://github.com/user-attachments/assets/e6c522fb-3b4f-4e79-88bb-5497c5b019ad)
+--- | --- | 
 > [DoorLock 링크](https://www.notion.so/DoorLock-ce6f06ab975e49c4ac7f6ee7f841d85c?pvs=21)
 
 > [HideSpot 링크](https://www.notion.so/HideSpot-f6d1b345f6a747f8997678ba02220291?pvs=21)
@@ -52,19 +47,15 @@ BaseMonster를 상속받는 2가지 몬스터(귀신)를 제작했습니다.
 
 Enum을 통해 몬스터의 행동상태를 구분하고, 각 상태에 맞춰 진행하는 BehaviorTree를 만들었습니다.
 
-모든 몬스터는 같은 BehaviorTree를 사용하여 플레이어에게 접근하고 기믹 수행 여부를 검사한다는 공통적인 행동을 취하지만,
+모든 몬스터는 같은 BehaviorTree를 사용하여 플레이어에게 접근하고 기믹 수행 여부를 검사한다는 공통적인 행동을 취하지만, Task에서 요구하는 기믹 판단 함수를 가상함수로 제작하여, 각각의 몬스터는 다른 논리 하에 회피 여부를 판단합니다.
 
-Task에서 요구하는 기믹 판단 함수를 가상함수로 제작하여, 각각의 몬스터는 다른 논리 하에 회피 여부를 판단합니다.
-
-이를 통해, 매번 다른 행동양식을 제작할 필요 없이 몬스터 클래스 추가 시, 판단 함수만 수정할 수 있도록 설계하였습니다.
+이를 통해, 새로운 몬스터 추가 시, 매번 새로운 행동양식을 제작할 필요 없이 판단 함수만 수정하도록 설계하였습니다.
 
 1. DoorMonster는 플레이어의 '문 잠금 여부'를 확인
 2. HideMonster는 플레이어의 '은신 여부'를 확인
-    
-<p align="center">
-  ![BT](https://github.com/user-attachments/assets/bf457bf1-6b4e-437b-828f-04185dc7a661)
-  ![Task](https://github.com/user-attachments/assets/281998a5-022c-4802-93e8-5b637ee6d1b7)
-</p>
+
+![BT](https://github.com/user-attachments/assets/bf457bf1-6b4e-437b-828f-04185dc7a661) |![Task](https://github.com/user-attachments/assets/281998a5-022c-4802-93e8-5b637ee6d1b7)
+--- | --- | 
 
 ```cpp
 
