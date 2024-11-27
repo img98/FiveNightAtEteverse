@@ -35,7 +35,7 @@ VR기기를 조작하여 가상공간 내 물체들과 현실처럼 상호작용
 
 키카드를 손으로 집어 문을 닫거나, 캐비넷 손잡이를 열고 닫아 내부에 숨어 적합한 회피 기믹을 수행해야 합니다.
 
-![vrkeycard](https://github.com/user-attachments/assets/91dd5518-0229-42de-ba95-2c88ffaadd88)) |![vrcabinet](https://github.com/user-attachments/assets/e6c522fb-3b4f-4e79-88bb-5497c5b019ad)
+![vrkeycard](https://github.com/user-attachments/assets/91dd5518-0229-42de-ba95-2c88ffaadd88) |![vrcabinet](https://github.com/user-attachments/assets/e6c522fb-3b4f-4e79-88bb-5497c5b019ad)
 --- | --- | 
 > [DoorLock 링크](https://www.notion.so/DoorLock-ce6f06ab975e49c4ac7f6ee7f841d85c?pvs=21)
 
