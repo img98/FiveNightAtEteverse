@@ -85,4 +85,6 @@ bool AHideMonster::CheckPlayerStateSafe()
 
 # 플레이 영상
 
+[![FNAE유튜브이미지](http://img.youtube.com/vi/6bcxpOHsBZQ/0.jpg)](https://youtu.be/6bcxpOHsBZQ)
+(이미지 클릭 시, 링크 이동)
 > https://youtu.be/6bcxpOHsBZQ
