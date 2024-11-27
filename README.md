@@ -19,13 +19,17 @@ FiveNightAtEteverse는 VR기기를 사용하여 즐길 수 있는 실감형 프�
 
 ## 실시간 렌더링
 
-플레이어는 사무실에서 건물 내의 공간을 CCTV를 통해 감시합니다.
+플레이어는 사무실에서 건물 내 공간을 CCTV를 통해 감시합니다.
 
-RenderTarget을 통해 실시간으로 갱신되는 텍스쳐를 생성하여 사무실 내 모니터에 표시합니다.
+USceneCaptureComponent2D를 사용하는 가상의 CCTV 카메라를 구현하여, 게임 속 상황을 촬영합니다.
 
-![cctv.png](https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F18dd57d0-b058-421c-8b44-b9507e8c3333%2Fcctv.png?table=block&id=13dd2bcf-8882-80d7-bdda-d5e6561581b1&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=860&userId=&cache=v2)
+촬영 된 화면은 RenderTarget을 통해 실시간으로 갱신되는 텍스쳐를 생성하며, 이것을 사무실 내 모니터에 표시합니다.
 
-[RenderTarget_CCTV 링크](https://www.notion.so/CCTV-12fe42954b5f4f248b52cefb1fba2ce7?pvs=21)
+<p align="center">
+  ![cctvcam](https://github.com/user-attachments/assets/5a7d5e23-6c58-4c19-bb9f-25894ad06108)
+  ![cctvmonitor](https://github.com/user-attachments/assets/a6ee6687-d9df-46e0-bf02-3ddb1854b051)
+</p>
+
 
 ## 회피 기믹 - VR 상호작용
 
@@ -34,8 +38,8 @@ VR기기를 조작하여 가상공간 내 물체들과 현실처럼 상호작용
 키카드를 손으로 집어 문을 닫거나, 캐비넷 손잡이를 열고 닫아 내부에 숨어 적합한 회피 기믹을 수행해야 합니다.
 
 <p align="center">
-  <img src="https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F9544e5d5-b0a4-457f-a61a-2e7e0397a869%2Fdoorlock.png?table=block&id=13dd2bcf-8882-8096-a00e-f27c5cb69752&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=670&userId=&cache=v2" alt="doorlock" width="45%">
-  <img src="https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F80160558-fe46-4ddf-adab-0c61e7fc2aae%2Fcabinet.png?table=block&id=13dd2bcf-8882-80b1-93f9-e8a18733e5e7&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=670&userId=&cache=v2" alt="cabinet" width="45%">
+  ![vrkeycard](https://github.com/user-attachments/assets/91dd5518-0229-42de-ba95-2c88ffaadd88)
+  ![vrcabinet](https://github.com/user-attachments/assets/e6c522fb-3b4f-4e79-88bb-5497c5b019ad)
 </p>
 
 > [DoorLock 링크](https://www.notion.so/DoorLock-ce6f06ab975e49c4ac7f6ee7f841d85c?pvs=21)
@@ -46,18 +50,28 @@ VR기기를 조작하여 가상공간 내 물체들과 현실처럼 상호작용
 
 BaseMonster를 상속받는 2가지 몬스터(귀신)를 제작했습니다.
 
-각각의 몬스터는 같은 BehaviorTree를 사용하지만 Task에서 요구하는 함수를 가상함수로 만들었기에 다른 대처를 해야합니다.
+Enum을 통해 몬스터의 행동상태를 구분하고, 각 상태에 맞춰 진행하는 BehaviorTree를 만들었습니다.
 
-1. DoorMonster는 플레이어의 문 잠금 여부를 확인
-2. HideMonster는 플레이어의 숨은 상태를 확인
+모든 몬스터는 같은 BehaviorTree를 사용하여 플레이어에게 접근하고 기믹 수행 여부를 검사한다는 공통적인 행동을 취하지만,
+
+Task에서 요구하는 기믹 판단 함수를 가상함수로 제작하여, 각각의 몬스터는 다른 논리 하에 회피 여부를 판단합니다.
+
+이를 통해, 매번 다른 행동양식을 제작할 필요 없이 몬스터 클래스 추가 시, 판단 함수만 수정할 수 있도록 설계하였습니다.
+
+1. DoorMonster는 플레이어의 '문 잠금 여부'를 확인
+2. HideMonster는 플레이어의 '은신 여부'를 확인
     
-![image.png](https://caramel-tin-182.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2Fbef6d7ee-7f0a-430a-8892-e359dcd59377%2F4e9b7219-b5a1-40bc-b6c9-17867aba2a01%2Fimage.png?table=block&id=13dd2bcf-8882-8064-9f76-ce6979d07709&spaceId=bef6d7ee-7f0a-430a-8892-e359dcd59377&width=1420&userId=&cache=v2)
+<p align="center">
+  ![BT](https://github.com/user-attachments/assets/bf457bf1-6b4e-437b-828f-04185dc7a661)
+  ![Task](https://github.com/user-attachments/assets/281998a5-022c-4802-93e8-5b637ee6d1b7)
+</p>
 
 ```cpp
 
 //DoorMonster.cpp
 bool ADoorMonster::CheckPlayerStateSafe()
-{
+{	
+	...
 	if (GameState->GetIsDoorLocked())
 	{
 		return true;
@@ -67,6 +81,7 @@ bool ADoorMonster::CheckPlayerStateSafe()
 //HideMonster.cpp
 bool AHideMonster::CheckPlayerStateSafe()
 {
+	...
 	if (GameState->GetIsPlayerHide())
 	{
 		return true;
