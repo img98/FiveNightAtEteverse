@@ -21,19 +21,21 @@ FiveNightAtEteverse는 VR기기를 사용하여 즐길 수 있는 실감형 프�
 
 플레이어는 사무실에서 건물 내 공간을 CCTV를 통해 감시합니다.
 
-USceneCaptureComponent2D를 사용하는 가상의 CCTV 카메라를 구현하여, 게임 속 상황을 촬영합니다.
+플레이 중의 게임 속 상황을 이미지 데이터로 저장하기 위해 USceneCaptureComponent2D를 사용하여 가상의 CCTV 카메라를 제작했습니다.
 
-촬영 된 화면은 RenderTarget을 통해 실시간으로 갱신되는 텍스쳐를 생성하며, 이것을 사무실 내 모니터에 표시합니다.
+카메라를 통해 비춰진 화면은 RenderTarget을 사용하여 커스텀 텍스쳐를 실시간으로 갱신하며, 이것을 모니터에 표시하여 CCTV 기능을 구현했습니다.
 
 ![cctvcam](https://github.com/user-attachments/assets/5a7d5e23-6c58-4c19-bb9f-25894ad06108) |![cctvmonitor](https://github.com/user-attachments/assets/a6ee6687-d9df-46e0-bf02-3ddb1854b051)
 --- | --- | 
 
 
-## 회피 기믹 - VR 상호작용
+## VR 상호작용
 
-VR기기를 조작하여 가상공간 내 물체들과 현실처럼 상호작용 할 수 있습니다.
+VR기기를 통해 가상공간 내 물체들과 현실처럼 상호작용 할 수 있습니다.
 
-키카드를 손으로 집어 문을 닫거나, 캐비넷 손잡이를 열고 닫아 내부에 숨어 적합한 회피 기믹을 수행해야 합니다.
+GrabComponent를 사용해 만들어진 VR액터는 오큘러스 입력을 통해 쥐거나 던질 수 있으며, 특정 프로퍼티를 변경하거나 함수를 트리거하도록 설계했습니다.
+
+다음처럼 키카드를 손으로 집어 문을 닫거나, 캐비넷 손잡이를 열고 닫아 내부에 숨어 후술될 몬스터들을 피하기 위한 기믹을 수행할 수 있습니다.
 
 ![vrkeycard](https://github.com/user-attachments/assets/91dd5518-0229-42de-ba95-2c88ffaadd88) |![vrcabinet](https://github.com/user-attachments/assets/e6c522fb-3b4f-4e79-88bb-5497c5b019ad)
 --- | --- | 
