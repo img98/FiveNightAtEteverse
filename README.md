@@ -17,18 +17,6 @@ FiveNightAtEteverse는 VR기기를 사용하여 즐길 수 있는 실감형 프�
 
 # 컨텐츠 및 기능
 
-## 실시간 렌더링
-
-플레이어는 사무실에서 건물 내 공간을 CCTV를 통해 감시합니다.
-
-플레이 중의 게임 속 상황을 이미지 데이터로 저장하기 위해 USceneCaptureComponent2D를 사용하여 가상의 CCTV 카메라를 제작했습니다.
-
-카메라를 통해 비춰진 화면은 RenderTarget을 사용하여 커스텀 텍스쳐를 실시간으로 갱신하며, 이것을 모니터에 표시하여 CCTV 기능을 구현했습니다.
-
-![cctvcam](https://github.com/user-attachments/assets/5a7d5e23-6c58-4c19-bb9f-25894ad06108) |![cctvmonitor](https://github.com/user-attachments/assets/a6ee6687-d9df-46e0-bf02-3ddb1854b051)
---- | --- | 
-
-
 ## VR 상호작용
 
 VR기기를 통해 가상공간 내 물체들과 현실처럼 상호작용 할 수 있습니다.
@@ -42,7 +30,20 @@ GrabComponent를 사용해 만들어진 VR액터는 오큘러스 입력을 통�
 > [DoorLock 링크](https://www.notion.so/DoorLock-ce6f06ab975e49c4ac7f6ee7f841d85c?pvs=21)
 
 > [HideSpot 링크](https://www.notion.so/HideSpot-f6d1b345f6a747f8997678ba02220291?pvs=21)
+
     
+## 실시간 렌더링
+
+플레이어는 사무실에서 건물 내 공간을 CCTV를 통해 감시합니다.
+
+플레이 중의 게임 속 상황을 이미지 데이터로 저장하기 위해 USceneCaptureComponent2D를 사용하여 가상의 CCTV 카메라를 제작했습니다.
+
+카메라를 통해 비춰진 화면은 RenderTarget을 사용하여 커스텀 텍스쳐를 실시간으로 갱신하며, 이것을 모니터에 표시하여 CCTV 기능을 구현했습니다.
+
+![cctvcam](https://github.com/user-attachments/assets/5a7d5e23-6c58-4c19-bb9f-25894ad06108) |![cctvmonitor](https://github.com/user-attachments/assets/a6ee6687-d9df-46e0-bf02-3ddb1854b051)
+--- | --- | 
+
+
 ## 몬스터
 
 BaseMonster를 상속받는 2가지 몬스터(귀신)를 제작했습니다.
